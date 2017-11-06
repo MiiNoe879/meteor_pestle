@@ -1,0 +1,139 @@
+<template name="account">
+<div class="main paddingLeftRight_30">
+  <div class="" style="margin-top: 52px;">
+      <div class="account_textBox_title" style="float: left;">Email</div>
+
+      <div class="account_label" style="float: right;">Change Email</div>
+  </div>
+  <div class="form-group">
+    <input disabled type="email" placeholder="{{userData.email}}" class="account_textBox_rect" id="email">
+  </div>
+  <div class="">
+      <div class="account_textBox_title" style="float: left;">Password</div>
+
+      <div class="account_label" style="float: right;" id="newPassword">Change Password</div>
+  </div>
+  <div class="form-group">
+    <input disabled type="password" placeholder="• • • • • • • •" class="account_textBox_rect" id="password">
+  </div>
+
+  <div class="Line" style="margin-top:32px;margin-bottom:32px;"></div>
+<div class="display_flex display_center">
+  <button type="button" class="btn btn-default btn-pestle-plus pestle_big_button">
+    Pestle Plus
+  </button>
+</div>
+
+<div class="account_description_title" style="background-color:white;padding : 5px;">
+  <label style="padding-top : 10px;paddingBottom : 8px;">Unlock unlimited recipe slots</label>
+</div>
+<div class="account_description_text" style="background-color:white;padding : 5px;text-align:center;padding-bottom: 25px;">
+  <label>We know paying for things isn’t fun but the truth is that without the continuous support of our Plus members, we would have to shutdown.
+<br><br>You can use Pestle for free forever. But if you like Pestle and want to support us please consider becoming a Plus member.</label>
+</div>
+
+<div class="display_flex display_center" style="position: relative;top: -30px;">
+  {{#if isSubscriptionActive}}
+  <button type="button" class="btn btn-default price_button btn_enjoy_unlimited_rec" style="margin-top : 10px;">
+    Enjoy Unlimited Receipes
+  </button>
+  {{else}}
+  <button type="button" class="btn btn-default price_button btn_per_month" style="margin-top : 10px;">
+    £1.79 a month
+  </button>
+  {{/if}}
+
+</div>
+
+<div class="feedback" >
+  Pestle not good enough to pay for yet?<a href="mailto: hi@pestleapp.com;" class="feedback_request" style="font-weight: 100;">Send us some feedback</a>
+</div>
+<center>
+<!-- <button type="button" class="btn btn-default price_button btn_logout" style="margin-top : 10px;">
+  Logout
+</button> -->
+</center>
+
+<div style="clear : both;"></div>
+<div class="create_view_screen_footer" >
+    <button type="button" class="back_button" id="back">
+      <img src="/images/back-icon.svg"/>
+    </button>
+</div>
+</div>
+
+<!-- Modal start-->
+<div class="modal fade" id="createRecipe" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div> -->
+      <div class="modal-body modal-center">
+        <div id="cardDetail" style="border : 2px solid black;padding : 10px;">
+           <fieldset>
+             <legend>Card details</legend>
+             <div>
+               Card Number: (*)<input type="text" id="cardNumber" maxlength="16"><br><br>
+               Expiry Month : (*)<input type="number" placeholder="MM" id="expiry_month" maxlength="2"><br><br>
+               Expiry Year : (*)<input type="number" placeholder="YY" id="expiry_year" maxlength="2"><br><br>
+               CVV : (*)<input type="text" id="cvv" maxlength="3"><br><br>
+             </div>
+
+             <button type="button" class="btn btn-default  btn_lineargrad proceedToPayment" style="margin-top : 10px;">
+               Proceed
+             </button>
+
+           </fieldset>
+     </div>
+
+     <form id="payment-form">
+       <div id="dropin-container"></div>
+     </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+
+  </div>
+</div>
+<!-- Modal end -->
+
+
+
+<!-- Modal start-->
+<div class="modal fade" id="feedbackModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div> -->
+      <div class="modal-body modal-center">
+        <fieldset>
+          <legend>Feedback</legend>
+          <div>
+            <textarea id="feedbackInput" style="width : 100%"></textarea><br><br>
+          </div>
+
+          <button type="button" class="btn btn-default  btn_lineargrad btnFeedback" style="margin-top : 10px;">
+            Send
+          </button>
+        </fieldset>
+     </div>
+
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+
+  </div>
+</div>
+<!-- Modal end -->
+</template>

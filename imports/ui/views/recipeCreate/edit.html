@@ -1,0 +1,256 @@
+<template name="edit">
+  <div class="main">
+    {{#if receipeImageData.imageUploaded}}
+    <div class="cameraDiv display_flex display_center column">
+        <!--<img src="/cfs/files/Images/{{receipeImageData.receipeImageId}}/receipeImage.jpg" width="100%" height="240"/>-->
+        <div class="recipeHero" style="background-image: url('/cfs/files/Images/{{receipeImageData.receipeImageId}}/receipeImage.jpg');"></div>
+    </div>
+    {{else}}
+    <div class="cameraDiv display_flex display_center column">
+		<img src="/images/icons/camera-white.svg"/>
+		<div class="A-picture-is-worth-a">A picture is worth a thousand words</div>
+    </div>
+    {{/if}}
+
+    <div style="display : none;">
+      <input type="file"  class="receipeImage" accept="image/*,.pdf,.doc,.docx" name="receipeImage" id="receipeImage">
+    </div>
+
+    <div id="flashMsg">
+          {{> flashMessages}}
+      </div>
+
+    <div class="formSection paddingLeftRight_30">
+      <form>
+
+        <div class="mr-bt-10">
+          <div class="input_label">Name</div>
+          <input type="text" value="{{receipeDetail.name}}" placeholder="Name" class="input recipe-create-text_box_rectangle validationRequired" id="name">
+        </div>
+
+        <div class="mr-bt-10">
+          <div class="input_label">Description</div>
+          <textarea type="text" value="{{receipeDetail.description}}" name="description" placeholder="Description" class="input recipe-create-text_box_rectangle" id="description"></textarea>
+        </div>
+
+        <div class="Line"></div>
+
+        <div class="mr-bt-10">
+          <div class="input_label validationRequired">Servings</div>
+          <!-- <input type="number" placeholder="1" class="recipe-create-text_box_rectangle" name="serving" id="serving"> -->
+          <input type="text" value="{{receipeDetail.serving}}" placeholder="Serving" class="input recipe-create-text_box_rectangle" name="serving" id="serving">
+
+        </div>
+
+        <div class="mr-bt-10">
+          <div class="input_label validationRequired">Total time</div>
+
+          <input type="text" value="{{receipeDetail.totalTime}}" placeholder="Total time" class="input recipe-create-text_box_rectangle" name="totalTime" id="totalTime"> <span class="timeLable"></span>
+
+          <!-- <input type="number" placeholder="1" class="recipe-create-text_box_rectangle fixWidth" id="hours"> <span class="timeLable">Hours</span>
+          <input type="number" placeholder="1" class="recipe-create-text_box_rectangle fixWidth" id="mins"> <span class="timeLable">Mins</span> -->
+        </div>
+
+        <div class="Line"></div>
+
+        <div class="mr-bt-10">
+          <div class="input_label">Ingredients</div>
+          <div class="ingredients-list">
+            {{#each ingredientList}}
+            <div class="ingredients-div" id="ing_parent_{{@index}}">
+              <div class="ingredients-list-box-left">
+                <input type="text" value="{{this}}" placeholder="Ingredient" class="input recipe-create-text_box_rectangle ingredient_input"  id="ing_{{@index}}"> <span class="timeLable"></span>
+              </div>
+              <div class="ingredients-list-box-right">
+                <button type="button" class="btn btn-default delete-ing-btn" style="margin-left : 5px;">
+                  <!-- <img src="/images/remove-copy-2.svg" style="width:30px;"/> -->
+                  <label style="width:30px;height: 18px;">x</label>
+                </button>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+
+          <div>
+            <label class="add_item_input add_ingredient">Add another ingredient +</label>
+          </div>
+        </div>
+
+        <div class="recipes-link-main-div">
+          <div class="input_label">Linked Recipes</div>
+          <div class="recipes-link-list">
+          {{#each linkedReceipeList}}
+          <div class="recipes-link-div" id="recipes-link_{{@index}}">
+            <div class="recipes-list-box-left">
+              <div class="display_flex flex_direction_raw recipes-element">
+                <div class="recipes-list-value" style="color :black;">{{this.name}}</div>
+              </div>
+            </div>
+            <div class="recipes-list-box-right">
+              <button type="button" class="btn btn-default delete-link-recp-btn">
+                x
+              </button>
+            </div>
+          </div>
+        <div style="clear : both;"></div>
+          {{/each}}
+        </div>
+        <div>
+          <label class="add_item_input add_link_recipe">Add another related recipe +</label></div>
+        </div>
+
+        <div class="Line"></div>
+
+        <div class="mr-bt-10">
+          <h2 class="method-div">Method</h2>
+          {{#each stepList}}
+          <div class="step-div" id="step_{{@index}}">
+            <div class="step-list-box-left">
+              <div class="input_label stepLabel">Step {{getStepNo(@index)}}</div>
+              <div type="text"  contenteditable="true"  name="step" placeholder="Tell us about step {{getStepNo(@index)}}" class="input stepbox step_input" id="step_input_{{@index}}">{{{this}}}</div>
+            </div>
+            <div class="step-list-box-right">
+              <button type="button" class="btn btn-default delete-step-btn" style="margin-left : 5px;">
+                <!-- <img src="/images/remove-copy-2.svg" style="width:30px;"/> -->
+                <label style="width:30px;height: 18px;">x</label>
+              </button>
+            </div>
+          </div>
+          <div class="showbiz">   
+           
+               
+
+        <!-- Modal content-->
+               
+                <div class="custom-input">
+                 <div contenteditable="false"  class="selectable-tags" id="tags_{{@index}}">
+                      
+                      {{#each ingredientList}}
+                 
+                     <span  data-class="label" class="ing-tag_{{@index}}"  > {{this}} </span>  
+                     {{/each}}
+                  
+                 
+             
+              </div>  </div>
+          </div>
+          {{/each}}
+          <div>
+            <label class="add_item_input Add-another-step">Add another step +</label>
+          </div>
+        </div>
+
+        <div class="reciper_screen_footer">
+            <button type="button" class="back_button" id="back">
+              <img src="/images/back-icon.svg"/>
+            </button>
+
+            <div class="btn-group display_flex flex_direction_raw" style="float: right;">
+              <!-- <button type="button" class="btn group-button recipe_finish_later" id="finishLater">Finish Later</button> -->
+              <button type="button" class="btn group-button recipe_save" id="save" style="text-align:center;border-radius: 100px 100px 100px 100px;">Save</button>
+            </div>
+        </div>
+
+      </form>
+    </div>
+    <!-- Modal start-->
+    <div class="modal fade" id="linkedRecipe" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div> -->
+          <div class="modal-body">
+            <div class="display_flex display_center">
+              <div class="Linked-Recipe">Linked Recipe</div>
+            </div>
+
+            <div class="display_flex display_center">
+              <div class="Pick-a-recipe-to-lin" style="margin-bottom : 10px;">Pick a recipe to link</div>
+            </div>
+
+            <div class="raciepe-add-list display_flex" style="margin-left : 30px;">
+            {{#each raciepeList}}
+            <div class="card recipe-link-box" id="recipe-link_{{raciepeList._id}}">
+              <!-- <img class="card-img-top" src="/images/recipe.jpg" alt="Card image cap" width="154"> -->
+              <div class="recipe-link-box-img" style="background-image: url('/cfs/files/Images/{{this.image}}/receipeImage.jpg')">
+                <div class="display_flex column_reverse timeDiv">
+                  <span class="h-5m">{{this.totalTime}}</span>
+                </div>
+              </div>
+              <div class="card-block">
+                <div class="recipe-add-title">{{this.name}}</div>
+                <p class="card-text ingredients-text">{{this.ingredientsText}}</p>
+              </div>
+            </div>
+            {{else}}
+              <div>
+                  <label>Sorry,there is no receipe to link.</label>
+              </div>
+            {{/each}}
+          </div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+    <!-- Modal end -->
+
+    <!-- Modal start-->
+    <div class="modal fade" id="chooseCameraGallery" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div> -->
+          <div class="modal-body">
+            <div class="more-option-title">Choose</div>
+            <div class="more-option-text camera">Camera</div>
+            <div class="more-option-text photoGallary">Photo Gallery</div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+    <!-- Modal end -->
+
+
+    <!-- Modal start-->
+    <div class="modal fade" id="receipeInlineModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div> -->
+          <div class="modal-body">
+            <div class="more-option-title">Choose</div>
+
+            {{#each ingredientList}}
+              <div class="more-option-text-inline ingredient-inline" data-index = "{{@index}}">{{this}}</div>
+            {{/each}}
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+    <!-- Modal end -->
+  </div>
+</template>

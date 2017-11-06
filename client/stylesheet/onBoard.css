@@ -1,0 +1,205 @@
+.Pestle {
+  height: 60px;
+  font-family: 'Open Sans';
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  text-align: center;
+  color: #ffffff;
+}
+
+
+.Pestle .text-style-1 {
+  letter-spacing: normal;
+}
+
+.Create-develop-pe {
+  /*width: 301px;*/
+  height: 48px;
+  font-family: 'Open Sans';
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  text-align: center;
+  margin-left : 25px;
+  margin-right : 25px;
+  color: #ffffff;
+}
+
+.Create-develop-pe .text-style-1 {
+  letter-spacing: normal;
+}
+
+.continueButton {
+  width: 95px;
+  height: 44px;
+  border-radius: 100px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  border: none;
+  cursor: pointer;
+
+}
+
+.Continue {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.43;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #08a2a9;
+}
+
+.Register {
+  height: 33px;
+  opacity: 0.5;
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  /*text-align: left;*/
+  color: #ffffff;
+}
+
+.text_box_lable {
+  height: 22px;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.text_box_rectangle {
+  height: 36px;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.register_form{
+  padding-top: 22px;
+}
+
+.Or {
+  height: 19px;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  /*text-align: left;*/
+  color: #ffffff;
+  padding-top: 5px;
+}
+
+.facebook_buton{
+  /*width: 175px;*/
+  height: 40px;
+  border-radius: 2px;
+  background-color: #455d99;
+  border: none;
+  margin-top : 5px;
+  /*margin-top: 22px;*/
+}
+
+.Log-in-with {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  letter-spacing: -0.3px;
+  /*text-align: left;*/
+  padding: 0 14px;
+  color: #ffffff;
+}
+
+.Log-in-with .text-style-1 {
+  letter-spacing: normal;
+}
+
+.facebook{
+  font-size: 18px;
+  font-weight:bold;
+}
+
+.register_button {
+  width: 89px;
+  height: 44px;
+  border-radius: 100px;
+  background-color: #ffffff;
+  border: none;
+}
+
+.forgot_button {
+  width: 150px;
+  height: 44px;
+  border-radius: 100px;
+  background-color: #ffffff;
+  border: none;
+}
+
+.text_register {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.43;
+  letter-spacing: 0.2px;
+  /*text-align: left;*/
+  color: #08a2a9;
+}
+
+.registerDiv{
+  position: absolute;
+  right : 32px;
+  bottom: 32px;
+}
+
+.back_button {
+  width: 44px;
+  height: 44px;
+  float: left;
+  border-radius: 100px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.03);
+  border: none;
+}
+
+.backDiv{
+  position: absolute;
+  left:32px;
+  bottom: 32px;
+}
+
+.Forgotten-Password {
+  height: 17px;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: 300;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom : 5px;
+}
+
+.Sign-in {
+  height: 33px;
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.signInTitle {
+  padding-top: 115px;
+}
+
+.registerTitle {
+  padding-top: 50px;
+}
+
+a:hover {color: #ffffff; text-decoration: none}
+
+.topDivSplashscreen {
+  /*margin : auto;*/
+}

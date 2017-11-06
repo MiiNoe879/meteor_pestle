@@ -1,0 +1,134 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <title>Pestle</title>
+
+    <script>
+
+
+    function scrapData(){
+
+      let url = $("#url").val();
+      Meteor.call("hibidDataScrape",url,function(err,res){
+        console.log(err,res);
+
+        if(res){
+          if(res.errorCode){
+            alert(res.errorMsg)
+          }else{
+            $("#image").attr("src",res.image);
+            $("#name").html(res.name);
+            $("#description").html(res.description);
+            $("#prepTime").html(res.prepTime);
+            $("#cookTime").html(res.cookTime);
+            $("#totalTime").html(res.totalTime);
+            $("#serving").html(res.serving);
+
+            let ingredientHtml = "";
+            res.ingredient.forEach(function(objIngredient){
+              ingredientHtml += "<li>"+objIngredient+"</li>";
+            });
+
+            $("#ingredient").html(ingredientHtml);
+
+            let instructionHtml = "";
+            res.instruction.forEach(function(objInstruction){
+              instructionHtml += "<li>"+objInstruction+"</li>";
+            });
+
+            $("#instruction").html(instructionHtml);
+          }
+        }else{
+          alert("Sorry , something went wrong")
+        }
+      });
+    }
+
+
+    </script>
+
+    <script src="https://js.braintreegateway.com/web/dropin/1.2.0/js/dropin.min.js"></script>
+</head>
+<!--
+<body>
+  <div>
+      <div>
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          First Name : <input type="text" id="firstName"><br><br>
+          Last Name : <input type="text" id="lastName"><br><br>
+          Email : <input type="text" id="email"><br><br>
+
+          <input type="button" onclick="checkIsSubscriptionActive()" style="margin : 10px;padding : 10px;background-color : 'blue';" value="Subscribe">
+
+        </fieldset>
+
+        <br><br>
+
+
+
+
+        <div id="cardDetail" style="display : none;border : 2px solid black;padding : 10px;">
+          <fieldset>
+            <legend>Card details</legend>
+            <div>
+              Card Number: <input type="text" id="cardNumber" maxlength="16"><br><br>
+              Expiry Month : <input type="number" placeholder="MM" id="expiry_month" maxlength="2"><br><br>
+              Expiry Year : <input type="number" placeholder="YY" id="expiry_year" maxlength="2"><br><br>
+              CVV : <input type="text" id="cvv" maxlength="3"><br><br>
+            </div>
+
+            <input type="button" onclick="onProceedToPayment()" style="padding : 10px;background-color : 'blue';" value="Proceed">
+          </fieldset>
+        </div>
+
+        <form id="payment-form">
+          <div id="dropin-container"></div>
+        </form>
+
+        <br><br>
+
+        <fieldset>
+          <legend>Receipe Import</legend>
+
+          <div style="margin-left : 10px;margin-top : 10px;">
+            <div>
+                For result, please check your console.....
+            </div><br><br>
+          Url :  <input type="text" id="url"><br><br>
+          <input type="submit" id="btnParse" value="Submit" onclick="scrapData()"><br><br><br><br><br>
+
+          <div>
+            <img src="" id="image" style="height : 200px;width : 300px;marginTop : 50;marginBottom : 50;">
+            <br>
+
+            <h2>Name :</h2> <label id="name"></label><br><br>
+            <h2>Description : </h2><label id="description"></label><br><br>
+
+            <h2>Total Time :</h2> <label id="totalTime"></label><br><br>
+            <h2>Prep Time :</h2> <label id="prepTime"></label><br><br>
+            <h2>Cook Time :</h2> <label id="cookTime"></label><br><br>
+
+            <h2>serving :</h2>
+            <label id="serving"></label><br><br>
+
+            <h2>Ingredients : </h2>
+            <ul id="ingredient"></ul><br><br>
+
+            <h2>Instruction : </h2>
+            <ul id="instruction"></ul><br><br>
+
+          </div>
+        </div>
+      </fieldset>
+      </div>
+
+      <div class="loaderParent" style="display : none;">
+        <center><div class="loader"></div></center>
+      </div>
+  </div>
+
+</body> -->

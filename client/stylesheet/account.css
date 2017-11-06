@@ -1,0 +1,113 @@
+.account_textBox_title {
+  width: 43px;
+  height: 22px;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 600;
+  /*text-align: left;*/
+  color: #4a4949;
+}
+
+.account_label {
+  /*width: 86px;*/
+  height: 19px;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 300;
+  text-align: right;
+  color: #f44754;
+}
+
+.account_textBox_rect {
+  /*width: 315px;*/
+  height: 36px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  border: none;
+  width: 100%;
+}
+
+.pestle_big_button {
+  width: 100%;
+  height: 60px;
+  font-family: 'Open Sans';
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  color: #ffffff;
+  background-color: linear-gradient(325deg, #ec008c, #fa8026);
+}
+
+.account_description_title{
+  /*width: 271px;*/
+  height: 40px;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  color: #4a4949;
+  /*padding-top: 18px;*/
+}
+
+.account_description_text{
+  /*width: 271px;*/
+  /*height: 124px;*/
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.58;
+  text-align: justify;
+  color: #787878;
+}
+
+.price_button {
+  /*width: 131px;*/
+  height: 43px;
+  border-radius: 2px;
+  background-image: linear-gradient(#f44754, #f44754), linear-gradient(335deg, #ec008c, #f23165 38%, #fa8026);
+}
+
+.feedback {
+  /*width: 277px;*/
+  height: 44px;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  color: #4a4949;
+  margin-top: 22px;
+}
+
+.feedback_request{
+  color: #f44754;
+}
+
+
+.btn-pestle-plus {
+  background : linear-gradient(334deg, #ec008c, #fa8026) !important;
+  color : white !important;
+}
+
+.btn_per_month {
+  background : linear-gradient(334deg, #ec008c, #fa8026) !important;
+  color : white !important;
+}
+.btn_enjoy_unlimited_rec {
+  background : linear-gradient(334deg, #ec008c, #fa8026) !important;
+  color : white !important;
+}
+
+.price_button {
+  background : linear-gradient(334deg, #ec008c, #fa8026) !important;
+  color : white !important;
+}
+
+.btn_lineargrad {
+  background : linear-gradient(334deg, #ec008c, #fa8026) !important;
+  color : white !important;
+}
+
+.create_view_screen_footer {
+  position: fixed;
+  bottom: 32px;
+}

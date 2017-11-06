@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64" viewBox="0 0 64 64">
+    <defs>
+        <rect id="b" width="56" height="56" rx="28"/>
+        <filter id="a" width="123.2%" height="123.2%" x="-11.6%" y="-9.8%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0"/>
+        </filter>
+        <linearGradient id="c" x1="112.077%" x2="-9.025%" y1="177.741%" y2="-90.732%">
+            <stop offset="0%" stop-color="#EC008C"/>
+            <stop offset="100%" stop-color="#FA8026"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(4 3)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="#FFF" xlink:href="#b"/>
+        </g>
+        <path fill="url(#c)" d="M37.008 27c.548 0 .992.444.992 1 0 .552-.455 1-.992 1H18.992A.993.993 0 0 1 18 28c0-.552.455-1 .992-1h18.016zm0-8c.548 0 .992.444.992 1 0 .552-.455 1-.992 1H18.992A.993.993 0 0 1 18 20c0-.552.455-1 .992-1h18.016zm0 16c.548 0 .992.444.992 1 0 .552-.455 1-.992 1H18.992A.993.993 0 0 1 18 36c0-.552.455-1 .992-1h18.016z" transform="translate(4 3)"/>
+    </g>
+</svg>

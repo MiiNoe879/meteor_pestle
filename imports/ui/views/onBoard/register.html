@@ -1,0 +1,52 @@
+<template name="register">
+  <div class="main display_flex column background_2">
+    <div id="flashMsg">
+          {{> flashMessages}}
+      </div>
+  <div class="paddingLeftRight_30">
+  <div class="registerTitle">
+      <span class="Sign-in">Register&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span><a href="/sign-in" class="Register" >Sign in</a>
+    </div>
+
+    <div class="register_form">
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="usr" class="text_box_lable">Full Name</label>
+          <input type="name" class="form-control text_box_rectangle validationRequired" id="name">
+        </div>
+        <div class="form-group">
+          <label for="usr" class="text_box_lable">Email Address</label>
+          <input type="email" class="form-control text_box_rectangle validationRequired" id="email">
+        </div>
+        <div class="form-group">
+          <label class="text_box_lable">Password</label>
+          <input type="password" class="form-control text_box_rectangle validationRequired validationEqualTo" id="password">
+        </div>
+        <div class="form-group">
+          <label class="text_box_lable">Repeat Password</label>
+          <input type="password" class="form-control text_box_rectangle validationRequired validationEqualTo" euqalTo="#password" id="ReptPwd">
+        </div>
+
+        <div class="form-group Or">
+          Or
+        </div>
+
+        <div class="form-group">
+          <button type="button" class="facebook_buton Log-in-with" id="facebookButton">Log in with <span class="facebook">facebook</span></button>
+        </div>
+
+        <div class="registerDiv">
+          <button type="submit" class="register_button text_register" id="register">Register</button>
+        </div>
+
+        <div class="backDiv">
+          <button type="button" class="back_button display_flex display_center" id="back">
+            <img src="/images/back-icon.svg"/>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+  {{loadFormValidationMessage}}
+</template>

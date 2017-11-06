@@ -1,0 +1,43 @@
+.menu_footer {
+  position:fixed;
+  bottom: 32px;
+  left: 32px;
+}
+
+.menuView {
+  display: flex;
+  flex-direction:column;
+  align-items: flex-end;
+  padding-right: 32px;
+}
+
+.navigationLink1 {
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: 300;
+  /*text-align: right;*/
+  /*color: #ffffff;*/
+}
+
+.navigationLink2 {
+  font-family: 'Open Sans';
+  font-size: 18px;
+  font-weight: 300;
+  /*text-align: right;*/
+  /*color: #ffffff;*/
+}
+
+.homeNavigation {
+  position: absolute;
+  bottom: 180px;
+}
+
+.acountNavigation {
+  position: absolute;
+  bottom: 140px;
+}
+
+.feedbackNavigation {
+  position: absolute;
+  bottom: 100px;
+}

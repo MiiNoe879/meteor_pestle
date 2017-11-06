@@ -1,0 +1,109 @@
+<template name="home">
+  <div class="main">
+    <div id="flashMsg">
+          {{> flashMessages}}
+      </div>
+
+    <div class="topDiv">
+      <div class="pestle-text">Pestle</div>
+      <div class="Now-were-cooking">Now we’re cooking…</div>
+    </div>
+    <div class="raciepe-list display_flex">
+      <div class="card recipe-box display_flex display_center add-new-recipe" id="ceateRecipe">
+        <span class="add-new-text">Add New</span> <span class="plus-icon">+</span>
+      </div>
+      {{#each raciepeList}}
+      <div class="card recipe-box">
+        <!-- <img class="card-img-top" src="/images/recipe.jpg" alt="Card image cap" width="154"> -->
+        <div class="recipe-box-img {{this.styleClass}}" data-url ="{{this.url}}" style="background-image:url('{{this.receipeImageUrl}}');">
+          <div class="display_flex column_reverse timeDiv">
+            <span class="h-5m">{{this.totalTime}}</span>
+          </div>
+        </div>
+        <div class="card-block">
+          <label class="recipe-title">{{this.name}}</label>
+          <p class="card-text ingredients-text">{{this.ingredientsText}}</p>
+        </div>
+      </div>
+
+      <a href="{{this.url}}" target="_blank" class="{{this._id}}"></a>
+      {{/each}}
+
+    </div>
+
+
+    <!-- {{#if failedScrappedData.hasFailedScrappedData}}
+      <div class="import-fail-section">
+        <div>
+          <label style="border-bottom : 1px solid grey;">Import failed list</label>
+        </div>
+
+        {{#each failedScrappedData.failedScrappedList}}
+        <div class="import-fail-div">
+          <button class="reimport">Reimport</button>
+          <br>
+          <a href="{{this.url}}">{{this.url}}</a>
+        </div>
+        {{/each}}
+      </div>
+    {{/if}} -->
+    <div class="bottomDiv display_flex display_center">
+		<img src="/images/icons/easter_egg.svg" />
+    </div>
+
+    <img src="/images/menu.svg" class="menu" id="menuButton"/>
+
+    <!-- Modal start-->
+    <!-- Modal start-->
+    <div class="modal fade" id="createRecipe" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div> -->
+          <div class="modal-body modal-center">
+            <div class="modal-title">Create Recipe</div>
+            <div class="modal-subtitle">Where do you want to start?</div>
+            <div class="modal-link" id="create_from_scratch">Create from scratch</div>
+            <div class="modal-link" id="import_from_web">Import from web</div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+    <!-- Modal end -->
+
+
+
+    <!-- Modal start-->
+    <div class="modal fade" id="importReceipe" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div> -->
+          <div class="modal-body modal-center">
+            <div class="create-recipe-text">Import Recipe</div>
+            <input type="text" style="border: 1px solid grey;margin: 10px 0;" placeholder="Url" class="recipe-create-text_box_rectangle validationRequired" id="importUrl">
+
+            <button id="btnImport" >Import</button>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+    <!-- Modal end -->
+  </div>
+</template>

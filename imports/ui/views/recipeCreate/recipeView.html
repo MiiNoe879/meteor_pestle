@@ -1,0 +1,137 @@
+<template name="recipeView">
+  <div class="main">
+    <div class="recipePhoto display_flex" style="background-image:url('{{raceipeDetail.receipeImageUrl}}')">
+    </div>
+    <div class="paddingLeftRight_30 paddinBottom_50">
+  <div>
+
+    <div id="flashMsg">
+          {{> flashMessages}}
+      </div>
+
+      {{#if raceipeDetail.isDuplicated}}
+      <a class="recipe-view-original" href="/view/{{raceipeDetail.originalRecpId}}">View original receipe</a>
+      {{/if}}
+    <div class="recipe-view-title">{{raceipeDetail.name}}</div>
+    <div class="recepi-description">{{raceipeDetail.description}}</div>
+  </div>
+
+    {{#if raceipeDetail.hasTotalTimeOrServing}}
+    <div class="Line" style="margin-top:32px;"></div>
+
+    <div class="timeSeringParent display_center">
+      <div class="timeAndServing">
+        {{#if raceipeDetail.hasServing}}
+        <div class="servingIcon display_flex flex_direction_raw">
+          <img src="/images/servings_icon.svg" style="margin-left: 3px;" />
+          <div class="servingAndTimeText" style="margin-left: 11px;
+    margin-top: 10px;" >{{raceipeDetail.serving}}&nbsp;serving</div>
+        </div>
+        {{/if}}
+
+        {{#if raceipeDetail.hasTotalTime}}
+        <div class="display_flex flex_direction_raw">
+          <img style=" margin-left: 4PX;" src="/images/time_icon.svg" />
+          <div class="servingAndTimeText" style="margin-left : 9px;margin-top:2px;">{{raceipeDetail.totalTime}}</div>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    {{/if}}
+    <div class="Line" style="margin-top:32px;margin-bottom:32px;"></div>
+
+
+    <div>
+      <div class="ingredientsList">Ingredients</div>
+      {{#each raceipeDetail.ingredient}}
+      <div class="ingredients-list-text">{{this}}</div>
+      {{/each}}
+    </div>
+
+    {{#if raceipeDetail.hasLinkedReceipe}}
+    <div style="margin-top:32px;">
+      <div class="linked-recipes-title">Linked Recipes</div>
+      {{#each raceipeDetail.linkedReceipes}}
+      <a href="/view/{{this}}" target="_blank" class="linked-recipe-name-list">{{getReceipeName this}}</a>
+      {{/each}}
+    </div>
+
+
+    {{/if}}
+
+    <div class="Line" style="margin-top:32px;margin-bottom:32px;"></div>
+
+
+    <div>
+      <div class="method-title">Method</div>
+      {{#each raceipeDetail.instruction}}
+      <div class="method-step"><b>Step {{getStepNo @index}}</b></div>
+      <div class="step-description">{{{this}}}</div>
+      {{/each}}
+    </div>
+
+    <div class="reciper_view_screen_footer">
+        <button type="button" class="back_button" id="back">
+          <img src="/images/back-icon.svg"/>
+        </button>
+
+        <div class="btn-group display_flex flex_direction_raw" style="float: right;">
+          <button type="button" class="btn group-button recipe_finish_view_more" id="more">...</button>
+          <button type="button" class="btn group-button recipe_finish_view_edit" id="edit">Edit</button>
+          <button type="button" class="btn group-button recipe_share" id="share">Share</button>
+        </div>
+    </div>
+
+  </div>
+  <!-- Modal start-->
+  <div class="modal fade" id="shareRecipe" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div> -->
+        <div class="modal-body" style="margin : 15px;">
+          <div class="Share-Recipe-modal-title">Share Recipe</div>
+          <div class="link-sub-title">Here’s a link to your recipe</div>
+          <label class="recipe-share-link">{{receipeLink}}</label>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+  <!-- Modal end -->
+
+  <!-- Modal start-->
+  <div class="modal fade" id="moreOptionRecipe" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div> -->
+        <div class="modal-body">
+          <div class="more-option-title">What shall we do?</div>
+          <div class="more-option-text duplicate-recp">Duplicate Recipe</div>
+          {{#if isCurUserCreatedRec}}
+          <div class="more-option-text delete-recp">Delete Recipe</div>
+          {{/if}}
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+  <!-- Modal end -->
+
+  </div>
+</template>

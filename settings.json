@@ -1,0 +1,14 @@
+{
+  "chargebee": {
+    "site" : "pestle-test",
+    "api_key" : "test_C85sa0twUnOOGcduhp7c2VGD3jcniyfdL",
+    "plan_id" : "plus",
+    "billing_cycles" : 12
+  },
+  "chargebee_mine" : {
+    "site" : "pentle-test",
+    "api_key" : "test_Hcu3sJXrowaHSGycvUIcuxFjnnrKOPcdepcd",
+    "plan_id" : "receipe_monthly_testing",
+    "billing_cycles" : 12
+  }
+}
